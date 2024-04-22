@@ -1,31 +1,104 @@
-<html>
-<head>
-<title>Mon Exercice JS N°2</title>
-<script>
+<doctype html="fr">
+	<meta content="width=device-width, initial" name="viewport">
+	<meta charset="utf-8"/>
+	<html>
+	<head>
+		<title>Mon Exercice JS N°2</title>
+		<script>
 
-function afficher(){
-	
-	var saisie = parseInt(document.getElementById('V1').value);
-	var resultat = "";	
-		
-	for (j=0; j<saisie ; j++){
-        for (i=0; i<saisie ; i++){
-                resultat += "*"; 
-        }
-                resultat += "</br>";
-        }
-	
-	document.getElementById('result').innerHTML = resultat;
+			function afficher(){
+				
+				var saisie = parseInt(document.getElementById('V1').value);
+				var resultat = "";	
+					
+				for (j=0; j<saisie ; j++){
+					for (i=0; i<saisie ; i++){
+							resultat += "*"; 
+					}
+							resultat += "</br>";
+					}
+				
+				document.getElementById('result').innerHTML = resultat;
+			
+			}
+			
+			function afficher2(){
+			
+				var saisie = parseInt(document.getElementById('V2').value);
+				var resultat = "";
+			
+				for (j=0; j<saisie ; j++){
+					for (i=0; i<j+1 ; i++){
+							resultat += "*";
+					}
+							resultat += "</br>";
+					}
+				document.getElementById('result2').innerHTML = resultat;
+			
+			}
+			
+			
+				function afficher3(){
+			
+				var saisie = parseInt(document.getElementById('V3').value);
+				var resultat = "";
+			
+				for (j=0; j<saisie ; j++){
+					for (i=0; i<saisie-j ; i++){
+							resultat += "*";
+					}
+							resultat += "</br>";
+					}
+				document.getElementById('result3').innerHTML = resultat;
+			
+			}
+			
+				function afficher4(){
+			
+				var saisie = parseInt(document.getElementById('V4').value);
+				var resultat = "";
+			
+				for (j=0; j<saisie ; j++) {
+					for (i=0; i<saisie-j ; i++){
+						resultat += "+";
+					}
+					for (k=0; i<saisie+1 ; i++){
+						resultat += "*";
+					}
+					resultat += "</br>";
+				}
+				document.getElementById('result4').innerHTML = resultat;
+			
+			}
 
-}
 
-</script>
+		</script>
 
-</head>
-<body>
-<h1>Les étoiles</h1>
-<p>Saisir un chiffre : <input id="V1"/></p>
-<button onclick="afficher()">Afficher</button>
-<div id="result"></div>
-</body>
-</html> 
+	</head>
+	<body>
+	<h1>Les étoiles</h1>
+	<p>Saisir un chiffre : <input id="V1"/></p>
+	<button onclick="afficher()">Afficher</button>
+	<div id="result"></div>
+
+	<h2>Les étoiles en triangle</h2>
+
+	<p>Saisir un chiffre : <input id="V2"/></p>
+	<button onclick="afficher2()">Afficher</button>
+	<div id="result2"></div>
+
+
+	<h2>Les étoiles inversées en triangle</h2>
+
+	<p>Saisir un chiffre : <input id="V3"/></p>
+	<button onclick="afficher3()">Afficher</button>
+	<div id="result3"></div>
+
+	<h2>Deux triangles inversés avec + et *</h2>
+
+	<p>Saisir un chiffre : <input id="V4"/></p>
+	<button onclick="afficher4()">Afficher</button>
+	<div id="result4"></div>
+
+	</body>
+	</html> 
