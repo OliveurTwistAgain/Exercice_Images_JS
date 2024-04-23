@@ -45,7 +45,7 @@
         }
 
         main svg {
-            width: 50%;
+            width: 40%;
             height: auto;
         }
 
@@ -107,24 +107,21 @@
                 <circle cx="50" cy="50" r="35" fill="transparent" border="2" stroke="purple" stroke-width="2" />
 
                 <!-- Ronds gris autour du barillet -->
-                <circle cx="30" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="40" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="60" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="70" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="60" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="40" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle onclick="trou1()" id="Br1" cx="30" cy="50" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
+                <circle onclick="trou2()" id="Br2" cx="40" cy="30" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
+                <circle onclick="trou3()" id="Br3" cx="60" cy="30" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
+                <circle onclick="trou4()" id="Br4" cx="70" cy="50" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
+                <circle onclick="trou5()" id="Br5" cx="60" cy="70" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
+                <circle onclick="trou6()" id="Br6" cx="40" cy="70" r="7" fill="lightblue" border="2" stroke="#000"
+                    stroke-width="1" />
 
                 <!-- Petit rond noir -->
                 <circle cx="50" cy="50" r="5" fill="black" />
-
-                <!-- Balles du barillet -->
-
-                <circle cx="30" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="40" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="60" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="70" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="60" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="40" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
 
 
 
@@ -147,7 +144,7 @@
             </div>
 
             <div class="button-container" id="real_game">
-                <button onclick="play()">Jouer à nouveau</button>
+                <button onclick="play()">Jouer vraiment</button>
             </div>
 
 
@@ -161,18 +158,72 @@
     </footer>
 
     <script>
+
         function tresorier() {
             // Code JavaScript à exécuter lorsque le bouton est cliqué
             alert("J'espère que le trésorier du Cnam est prévenu !");
         }
 
+        var clics = 0;
+
         function play() {
-
-            var circles = document.querySelectorAll("circle[fill='red']");
-
-            var randomCircle = circles[Math.floor(Math.random() * circles.length)];
-            randomCircle.style.display = "block";
+            if (clics < 3) {
+                var Val = Math.floor((Math.random() * 6) + 1);
+                var fill = window.getComputedStyle(document.getElementById("Br" + Val)).getPropertyValue("fill");
+                if (fill == "red") {
+                    alert("Perdu");
+                } else {
+                    alert("Gagné");
+                }
+                document.getElementById("Br" + Val).style.fill = "blue";
+                clics++;
+            } else {
+                alert("3 clics maximum !");
+            }
         }
+
+        function trou1() {
+            if (document.getElementById("Br1").style.fill == "red") {
+                document.getElementById("Br1").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br1").style.fill = "red"; }
+        }
+
+        function trou2() {
+            if (document.getElementById("Br2").style.fill == "red") {
+                document.getElementById("Br2").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br2").style.fill = "red"; }
+        }
+
+        function trou3() {
+            if (document.getElementById("Br3").style.fill == "red") {
+                document.getElementById("Br3").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br3").style.fill = "red"; }
+        }
+
+        function trou4() {
+            if (document.getElementById("Br4").style.fill == "red") {
+                document.getElementById("Br4").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br4").style.fill = "red"; }
+        }
+
+        function trou5() {
+            if (document.getElementById("Br5").style.fill == "red") {
+                document.getElementById("Br5").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br5").style.fill = "red"; }
+        }
+
+        function trou6() {
+            if (document.getElementById("Br6").style.fill == "red") {
+                document.getElementById("Br6").style.fill = "lightblue";
+            }
+            else { document.getElementById("Br6").style.fill = "red"; }
+        }
+
 
     </script>
 
