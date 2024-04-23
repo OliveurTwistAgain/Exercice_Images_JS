@@ -1,80 +1,151 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roulette Russe version Boris</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Russe version Boris</title>
+    <style>
+        /* Réinitialisation des styles et styles de base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Réinitialisation des styles et styles de base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+            background-color: azure;
+        }
 
-body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-  background-color: azure;
-}
+        header,
+        main,
+        footer {
+            width: 100%;
+            max-width: 1200px;
+            /* Ajustez la largeur maximale en fonction de vos besoins */
+            margin: 0 auto;
+            padding: 10px;
+            background-color: antiquewhite;
+            font-size: 1em;
+        }
 
-header, main, footer {
-  width: 100%;
-  max-width: 1200px; /* Ajustez la largeur maximale en fonction de vos besoins */
-  margin: 0 auto;
-  padding: 20px;
-  background-color: antiquewhite;
-  font-size: 1em;
-}
+        p,
+        h2,
+        h2 i {
+            text-align: center;
+            margin-bottom: 5%;
+            font-size: 1em;
+        }
 
-p, h2, h2 i {
-  text-align: center;
-  margin-bottom: 5%;
-  font-size: 1em;
-}
+        svg {
+            width: 100%;
+            height: auto;
+            /* Pour maintenir le ratio lors du redimensionnement */
+        }
 
-svg {
-  width: 100%;
-  height: auto; /* Pour maintenir le ratio lors du redimensionnement */
-}
+        main svg {
+            width: 50%;
+            height: auto;
+        }
 
-main svg {
-    width: 60%;
-    height: auto;
-}
+        .container {
 
+            align-items: center;
+        }
 
-  </style>
+        .consignes {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .button_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
+    <header>
 
-    <h2>Roulette Russe version Boris ! </h2>
+        <h2>Roulette Russe version Boris ! </h2>
 
-<p>Le cash prize est de 1.000.000 €. Par contre, je tiens à préciser, je décline toute responsabilité et... bonne chance hein !</p><quote style="text-align: center;">
+        <p style="font-style: italic;">Le cash prize est de 1.000.000 €. Par contre, je tiens à préciser, je décline
+            toute responsabilité et...
+            bonne chance hein !</p>
+        <quote style="text-align: center;">
 
-  </header>
-  <main style="text-align: center;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    </header>
 
-      <!-- Fond gris -->
-  <circle cx="50" cy="50" r="35" fill="transparent" border="2" stroke="purple" stroke-width="2"/>
-  
-  <!-- Ronds gris autour du barillet -->
-  <circle cx="30" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  <circle cx="40" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  <circle cx="60" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  <circle cx="70" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  <circle cx="60" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  <circle cx="40" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1"/>
-  
-  <!-- Petit rond noir -->
-  <circle cx="50" cy="50" r="5" fill="black" />
+    <div class="container">
+        <main style="text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
 
-    </svg>
-  </main>
-  <footer>
-    <p>Quand je serai plus grand, j'arrêterai la roulette russe !</p>
-  </footer>
+                <!-- Fond gris -->
+                <circle cx="50" cy="50" r="35" fill="transparent" border="2" stroke="purple" stroke-width="2" />
+
+                <!-- Ronds gris autour du barillet -->
+                <circle cx="30" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="40" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="60" cy="30" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="70" cy="50" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="60" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="40" cy="70" r="7" fill="lightgray" border="2" stroke="#000" stroke-width="1" />
+
+                <!-- Petit rond noir -->
+                <circle cx="50" cy="50" r="5" fill="black" />
+
+                <!-- Balles du barillet -->
+
+                <circle cx="30" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none"/>
+                <circle cx="40" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none"/>
+                <circle cx="60" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="70" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="60" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="40" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
+               
+
+
+            </svg>
+
+            <div class="button-container">
+                <button onclick="maFonction()">Jouer</button>
+            </div>
+
+            <div class="consignes">
+                <p class="consignes">Consignes du jeu :</p>
+                <ul class="consignes">
+                    <li>Jouer en cliquant sur le bouton</li>
+                    <li>Gagner ou perdre en fonction des conditions du jeu</li>
+                    <li>Si vous gagnez avec 1 balle : 10.000 €</li>
+                    <li>Si vous gagnez avec 2 balles : 100.000 €</li>
+                    <li>Si vous gagnez avec 3 balles : 1.000.000 €</li>
+                </ul>
+
+            </div>
+
+
+
+
+    </div>
+
+    </main>
+    <footer>
+        <p style="font-style: italic;">Quand je serai plus grand, j'arrêterai la roulette russe !</p>
+    </footer>
+
+    <script>
+        function maFonction() {
+            // Code JavaScript à exécuter lorsque le bouton est cliqué
+            alert("Hi Boris, j'espère que le trésorier du Cnam est prévenu !");
+        }
+    </script>
+
 </body>
+
 </html>
