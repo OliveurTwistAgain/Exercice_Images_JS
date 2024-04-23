@@ -71,6 +71,19 @@
         li {
             list-style-type: none;
         }
+
+        #real_game {
+            padding: 1%;
+            text-align: center;
+            display: inline-block;
+            margin: 4px 2px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #real_game:hover {
+            background-color: #9fecbb;
+        }
     </style>
 </head>
 
@@ -108,17 +121,17 @@
 
                 <circle cx="30" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
                 <circle cx="40" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
-                <circle cx="60" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="70" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="60" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
-                <circle cx="40" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" />
+                <circle cx="60" cy="30" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
+                <circle cx="70" cy="50" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
+                <circle cx="60" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
+                <circle cx="40" cy="70" r="7" fill="red" border="2" stroke="#000" stroke-width="1" display="none" />
 
 
 
             </svg>
 
             <div class="button-container">
-                <button onclick="maFonction()">Jouer</button>
+                <button onclick="tresorier()">Jouer</button>
             </div>
 
             <div class="consignes">
@@ -133,6 +146,10 @@
 
             </div>
 
+            <div class="button-container" id="real_game">
+                <button onclick="play()">Jouer à nouveau</button>
+            </div>
+
 
 
 
@@ -144,10 +161,19 @@
     </footer>
 
     <script>
-        function maFonction() {
+        function tresorier() {
             // Code JavaScript à exécuter lorsque le bouton est cliqué
-            alert("Hi Boris, j'espère que le trésorier du Cnam est prévenu !");
+            alert("Boris, j'espère que le trésorier du Cnam est prévenu !");
         }
+
+        function play() {
+
+            var circles = document.querySelectorAll("circle[fill='red']");
+
+            var randomCircle = circles[Math.floor(Math.random() * circles.length)];
+            randomCircle.style.display = "block";
+        }
+
     </script>
 
 </body>
